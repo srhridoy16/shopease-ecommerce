@@ -1,0 +1,195 @@
+
+{% extends 'store/base.html' %}
+
+
+{% block title %}
+
+My Orders - ShopEase
+
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+
+
+<h2 class="text-center mb-4">
+
+My Orders
+
+</h2>
+
+
+
+
+{% if orders %}
+
+
+
+{% for order in orders %}
+
+
+
+<div class="card mb-4">
+
+
+<div class="card-header bg-dark text-white">
+
+
+<h5>
+
+Order #{{order.id}}
+
+</h5>
+
+
+</div>
+
+
+
+
+<div class="card-body">
+
+
+<p>
+<strong>Customer:</strong>
+{{order.customer_name}}
+</p>
+
+
+<p>
+<strong>Total Amount:</strong>
+${{order.total_price}}
+</p>
+<p>
+
+<strong>
+Status:
+</strong>
+
+
+<span class="badge bg-primary">
+
+{{order.status}}
+
+</span>
+
+
+</p>
+
+<p>
+<strong>Payment:</strong>
+{{order.payment_method}}
+</p>
+
+
+<p>
+<strong>Date:</strong>
+{{order.created_at}}
+</p>
+
+
+
+
+<h6 class="mt-4">
+
+Products:
+
+</h6>
+
+
+
+<table class="table table-bordered">
+
+
+<tr>
+
+<th>
+Product
+</th>
+
+
+<th>
+Quantity
+</th>
+
+
+<th>
+Price
+</th>
+
+
+</tr>
+
+
+
+
+{% for item in order.items.all %}
+
+
+
+<tr>
+
+
+<td>
+
+{{item.product.name}}
+
+</td>
+
+
+<td>
+
+{{item.quantity}}
+
+</td>
+
+
+<td>
+
+${{item.price}}
+
+</td>
+
+
+</tr>
+
+
+
+{% endfor %}
+
+
+
+
+</table>
+
+
+
+</div>
+
+
+</div>
+
+
+
+
+{% endfor %}
+
+
+
+{% else %}
+
+
+
+<h4 class="text-center">
+
+No orders found
+
+</h4>
+
+
+{% endif %}
+
+
+
+</div>
+{% endblock %}

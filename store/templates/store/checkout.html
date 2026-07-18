@@ -1,0 +1,124 @@
+{% extends 'store/base.html' %}
+
+
+{% block title %}
+
+Checkout - ShopEase
+
+{% endblock %}
+
+{% block content %}
+
+<div class="container mt-5">
+
+
+<h2 class="text-center mb-4">
+Checkout
+</h2>
+
+
+
+<form method="POST">
+{% csrf_token %}
+
+<div class="mb-3">
+
+<label>
+Full Name
+</label>
+
+<input 
+type="text"
+name="customer_name"
+class="form-control"
+placeholder="Enter your name"
+required>
+
+</div>
+
+
+
+
+<div class="mb-3">
+
+<label>
+Phone Number
+</label>
+
+<input 
+type="text"
+name="phone"
+class="form-control"
+placeholder="Phone number"
+required>
+
+</div>
+
+
+
+<div class="mb-3">
+
+<label>
+Address
+</label>
+
+
+<textarea
+name="address"
+class="form-control"
+rows="4"
+placeholder="Delivery address"
+required>
+</textarea>
+
+
+</div>
+
+
+
+
+<div class="mb-3">
+
+<label>
+Payment Method
+</label>
+
+
+<select class="form-control">
+
+<option>
+Cash on Delivery
+</option>
+
+
+</select>
+
+
+</div>
+
+
+
+
+<h4>
+
+Total Amount: ${{total}}
+
+</h4>
+
+
+
+<button class="btn btn-success">
+
+Place Order
+
+</button>
+
+
+
+</form>
+
+
+
+</div>
+
+{% endblock %}

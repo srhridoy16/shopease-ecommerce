@@ -1,0 +1,198 @@
+{% extends 'store/base.html' %}
+
+{% load cart_filters %}
+
+{% block title %}
+
+Cart - ShopEase
+
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+
+
+<h2 class="text-center mb-4">
+
+Shopping Cart
+
+</h2>
+
+
+
+{% if products %}
+
+
+
+<table class="table table-bordered text-center">
+
+
+<tr class="table-dark">
+
+<th>
+Product
+</th>
+
+<th>
+Price
+</th>
+
+<th>
+Quantity
+</th>
+
+<th>
+Remove
+</th>
+
+</tr>
+
+
+
+
+{% for product in products %}
+
+
+<tr>
+
+
+<td>
+
+{{product.name}}
+
+</td>
+
+
+
+<td>
+
+${{product.price}}
+
+</td>
+
+
+
+<td>
+
+
+<a href="{% url 'update_cart' product.id 'remove' %}"
+class="btn btn-danger btn-sm">
+
+-
+
+</a>
+
+
+
+<span class="mx-3">
+
+{{cart|get_item:product.id}}
+
+</span>
+
+
+
+<a href="{% url 'update_cart' product.id 'add' %}"
+class="btn btn-success btn-sm">
+
++
+
+</a>
+
+
+
+</td>
+
+
+
+<td>
+
+<a href="{% url 'remove_from_cart' product.id %}"
+class="btn btn-danger btn-sm">
+
+Remove
+
+</a>
+
+</td>
+
+
+</tr>
+
+
+{% endfor %}
+
+
+</table>
+
+
+
+
+<h3 class="text-end">
+
+Total: ${{total}}
+
+</h3>
+
+
+<div class="text-end">
+
+<a href="{% url 'checkout' %}"
+class="btn btn-success">
+
+Checkout
+
+</a>
+
+</div>
+
+
+
+
+{% else %}
+
+
+
+<div class="text-center mt-5">
+
+
+<h1 style="font-size:80px;">
+🛒
+</h1>
+
+
+<h3>
+
+Your cart is empty
+
+</h3>
+
+
+<p class="text-muted">
+
+You have not added any products to your cart yet.
+
+</p>
+
+
+
+<a href="/products/" 
+class="btn btn-primary mt-3">
+
+Start Shopping
+
+</a>
+
+
+
+</div>
+
+
+
+{% endif %}
+
+
+
+</div>
+
+{% endblock %}

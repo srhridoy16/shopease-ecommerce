@@ -1,0 +1,117 @@
+{% extends 'store/base.html' %}
+
+
+{% block title %}
+
+Products - ShopEase
+
+{% endblock %}
+{% block content %}
+
+<div class="container mt-5">
+
+
+<h2 class="text-center mb-4">
+
+All Products
+
+</h2>
+
+
+
+
+<div class="row">
+
+
+
+{% for product in products %}
+
+
+
+<div class="col-md-4 mb-4">
+
+
+<div class="card h-100">
+
+
+
+{% if product.image %}
+
+
+<img src="{{product.image.url}}"
+class="card-img-top"
+height="250">
+
+
+{% endif %}
+
+
+
+
+
+<div class="card-body">
+
+
+<h5 class="card-title">
+
+{{product.name}}
+
+</h5>
+
+
+
+<p>
+
+Price: ${{product.price}}
+
+</p>
+
+
+
+
+<div class="d-flex gap-2">
+
+
+<a href="{% url 'product_detail' product.id %}"
+class="btn btn-outline-primary w-50">
+
+Details
+
+</a>
+
+
+
+<a href="{% url 'add_to_cart' product.id %}"
+class="btn btn-primary w-50">
+
+Add Cart
+
+</a>
+
+
+</div>
+
+
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+
+{% endfor %}
+
+
+
+</div>
+
+
+
+</div>
+{% endblock %}

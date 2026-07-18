@@ -1,0 +1,136 @@
+{% extends 'store/base.html' %}
+
+
+{% block title %}
+
+{{category.name}} Products - ShopEase
+
+{% endblock %}
+
+
+
+{% block content %}
+
+
+<div class="container mt-5">
+
+
+<h2 class="text-center mb-4">
+
+{{category.name}} Products
+
+</h2>
+
+
+
+<div class="row">
+
+
+
+{% for product in products %}
+
+
+
+<div class="col-lg-4 col-md-6 mb-4">
+
+
+
+<div class="card h-100 shadow-sm border-0 rounded-4 overflow-hidden">
+
+
+
+{% if product.image %}
+
+
+<img src="{{product.image.url}}"
+class="card-img-top"
+style="height:280px; object-fit:cover;">
+
+
+{% endif %}
+
+
+
+
+<div class="card-body">
+
+
+<h5 class="fw-bold">
+
+{{product.name}}
+
+</h5>
+
+
+
+<p class="text-muted">
+
+{{product.description|truncatewords:12}}
+
+</p>
+
+
+
+<h4 class="text-success">
+
+${{product.price}}
+
+</h4>
+
+
+
+
+<a href="{% url 'product_detail' product.id %}"
+class="btn btn-outline-primary">
+
+Details
+
+</a>
+
+
+
+<a href="{% url 'add_to_cart' product.id %}"
+class="btn btn-primary">
+
+Add Cart
+
+</a>
+
+
+
+</div>
+
+
+</div>
+
+
+
+</div>
+
+
+
+{% empty %}
+
+
+
+<h4 class="text-center">
+
+No products found in this category.
+
+</h4>
+
+
+
+{% endfor %}
+
+
+
+</div>
+
+
+
+</div>
+
+
+
+{% endblock %}
