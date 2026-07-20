@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from .models import Product, Order, OrderItem, Category
-
+from django.contrib.auth.hashers import make_password
 
 def home(request):
 
@@ -399,3 +399,16 @@ def category_products(request, id):
         'store/category_products.html',
         context
     )
+    
+def create_admin(request):
+
+    if not User.objects.filter(username='আপনার_username').exists():
+
+        User.objects.create(
+            username='hridoy',
+            password=make_password('61189568as'),
+            is_superuser=True,
+            is_staff=True
+        )
+
+    return redirect('/admin/')
