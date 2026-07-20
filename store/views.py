@@ -400,17 +400,3 @@ def category_products(request, id):
         context
     )
     
-from django.contrib.auth.models import User
-from django.http import HttpResponse
-
-
-def create_admin(request):
-    if not User.objects.filter(username="hridoy").exists():
-        User.objects.create_superuser(
-            username="hridoy",
-            email="srhridoy2003@gmail.com",
-            password="61189568as"
-        )
-        return HttpResponse("Admin created successfully")
-    else:
-        return HttpResponse("Admin already exists")
