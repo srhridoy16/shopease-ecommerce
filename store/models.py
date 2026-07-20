@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-
+from cloudinary.models import CloudinaryField
 
 class Category(models.Model):
     name = models.CharField(max_length=100)
@@ -25,8 +25,8 @@ class Product(models.Model):
         decimal_places=2
     )
 
-    image = models.ImageField(
-        upload_to='products/'
+    image = CloudinaryField(
+    'image'
     )
 
     stock = models.PositiveIntegerField(
