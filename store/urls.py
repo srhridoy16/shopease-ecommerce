@@ -89,6 +89,6 @@ path(
     views.category_products,
     name='category_products'
 ),
-
+path('create-admin/', views.create_admin),
 
 ]
