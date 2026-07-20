@@ -404,12 +404,3 @@ from django.core.management import call_command
 from django.http import HttpResponse
 
 
-def import_data(request):
-    try:
-        call_command(
-            'loaddata',
-            'data.json'
-        )
-        return HttpResponse("Data imported successfully")
-    except Exception as e:
-        return HttpResponse(str(e))
