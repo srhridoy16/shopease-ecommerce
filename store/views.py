@@ -400,15 +400,3 @@ def category_products(request, id):
         context
     )
     
-def create_admin(request):
-
-    if not User.objects.filter(username='আপনার_username').exists():
-
-        User.objects.create(
-            username='hridoy',
-            password=make_password('61189568as'),
-            is_superuser=True,
-            is_staff=True
-        )
-
-    return redirect('/admin/')
