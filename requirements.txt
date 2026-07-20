@@ -5,3 +5,6 @@ pillow==11.1.0
 gunicorn==23.0.0
 cloudinary
 django-cloudinary-storage
+psycopg2-binary
+dj-database-url
+psycopg2-binary

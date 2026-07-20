@@ -1,5 +1,6 @@
 from django.urls import path
 from . import views
+from store.views import import_data
 
 
 urlpatterns = [
@@ -89,6 +90,6 @@ path(
     views.category_products,
     name='category_products'
 ),
-
+path('import-data/', import_data),
 
 ]
