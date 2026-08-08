@@ -76,3 +76,20 @@ Sensitive credentials such as Django SECRET_KEY and Cloudinary API credentials a
 
 GitHub:  
 https://github.com/srhridoy16
+
+## 📸 Screenshots
+
+### 🏠 Home Page
+![Home Page](screenshots/ShopEase Homepage Interface.png)
+
+### 🛍️ Product Listing
+![Product Listing](screenshots/product listing interface.png)
+
+### 📦 Product Details
+![Product Details](screenshots/product-details page.png)
+
+### 🛒 Shopping Cart & Checkout
+![Shopping Cart](screenshots/cart page.png)
+
+### ⚙️ Admin Dashboard
+![Admin Dashboard](screenshots/admin screenshort_Admin dashboard.png)
